@@ -8,7 +8,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-     await queryInterface.createTable('reservations',{
+     await queryInterface.createTable('addresses',{
       id: {type:Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
       userId: {
         type: Sequelize.INTEGER,
@@ -17,20 +17,13 @@ module.exports = {
           key: 'id'
         }
       },
-      restaurantId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'restaurants',
-          key: 'id'
-        }
-      },
-      restaurantName: Sequelize.STRING,
       name: Sequelize.STRING,
       lastName: Sequelize.STRING,
-      amountPeople: Sequelize.INTEGER,
-      table: Sequelize.INTEGER,
-      date: Sequelize.DATE,
-      hour: Sequelize.FLOAT,
+      address: Sequelize.STRING,
+      postCode: Sequelize.INTEGER,
+      state: Sequelize.STRING,
+      city: Sequelize.STRING,
+      numTel: Sequelize.INTEGER,
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
 
@@ -42,8 +35,8 @@ module.exports = {
      * Add reverting commands here.
      *
      * Example:
-     * await queryInterface.dropTable('users');
+     * ;
      */
-     await queryInterface.dropTable('reservations');
+    await queryInterface.dropTable('addresses')
   }
 };

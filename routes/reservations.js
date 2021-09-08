@@ -1,21 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../db');
+const permission = require('../middlewares/permission')
+
 
 // Get all resconst reservations = await sequelize.models.reservations
-router.get('/', async (req, res) => {
+router.get('/', permission('admin', 'client'), async (req, res) => {
   const reservations = await sequelize.models.reservations.findAndCountAll();
   return res.status(200).json({ data: reservations });
 });
 
 // Create a new reservation
-router.post('/', async (req, res) => {
-  const { body } = req;
+router.post('/', permission('admin'), async (req, res) => {
+    const { body } = req;
   const reservation =  await sequelize.models.reservations.create({
     userId: body.userId,
-    reestaurantId: body.reestaurantId,
+    restaurantId: body.restaurantId,
     restaurantName: body.restaurantName,
     name: body.name,
+    lastName: body.lastName,
     amountPeople: body.amountPeople,
     table: body.table,
     date: body.date,
@@ -35,7 +38,7 @@ router.put('/:id', async (req, res) => {
   }
   const updatedReservation = await reservation.update({
     userId: body.userId,
-    reestaurantId: body.reestaurantId,
+    restaurantId: body.restaurantId,
     restaurantName: body.restaurantName,
     name: body.name,
     amountPeople: body.amountPeople,

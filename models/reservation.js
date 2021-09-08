@@ -1,6 +1,6 @@
 const { DataTypes, Sequelize } = require('sequelize');
 
-module.exports = (sequelize) => sequelize.define('reviews', {
+module.exports = (sequelize) => sequelize.define('reservations', {
     id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     userId: {
       type: Sequelize.INTEGER,
@@ -23,8 +23,8 @@ module.exports = (sequelize) => sequelize.define('reviews', {
     lastName: DataTypes.STRING,
     amountPeople: DataTypes.INTEGER,
     table: DataTypes.INTEGER,
-    date: DataTypes.DATE,
-    hour: DataTypes.FLOAT,
+    date: DataTypes.STRING,
+    hour: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
 });

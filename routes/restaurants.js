@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const sequelize = require('../db');
+const permission = require('../middlewares/permission')
 
 // Get all resconst restaurants = await sequelize.models.restaurants
-router.get('/', async (req, res) => {
+router.get('/', permission('admin', 'client'), async (req, res) => {
   const restaurants = await sequelize.models.restaurants.findAndCountAll();
   return res.status(200).json({ data: restaurants });
 });
-
 // Create a new restaurant
-router.post('/', async (req, res) => {
+router.post('/', permission('admin'), async (req, res) => {
   const { body } = req;
   const restaurant =  await sequelize.models.restaurants.create({
     image: body.image,

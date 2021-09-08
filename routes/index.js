@@ -4,10 +4,10 @@ const router = express.Router()
 const authenticate = require('../middlewares/authentication')
 
 router.use('/auth', require('./auth'))
-router.use('/products', authenticate, require('./products'))
 router.use('/restaurants', authenticate, require('./restaurants'))
+router.use('/products', authenticate, require('./products'))
 router.use('/reservations', authenticate, require('./reservations'))
-router.use('/shippingAddress', authenticate, require('./shippingAddress'))
+router.use('/addresses', authenticate, require('./addresses'))
 router.use('/reviews', require('./reviews'))
 router.use('/users', require('./users'))
 

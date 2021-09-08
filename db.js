@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize')
 const Product = require('./models/product')
 const Restaurant = require('./models/restaurant')
 const Reservation = require('./models/reservation')
-const Address = require('./models/shippingAddress')
+const Address = require('./models/address')
 const Review = require('./models/review')
 const User = require('./models/user')
 
