@@ -20,10 +20,10 @@ module.exports = {
       name: Sequelize.STRING,
       lastName: Sequelize.STRING,
       address: Sequelize.STRING,
-      postCode: Sequelize.INTEGER,
+      postCode: Sequelize.STRING,
       state: Sequelize.STRING,
       city: Sequelize.STRING,
-      numTel: Sequelize.INTEGER,
+      numTel: Sequelize.STRING,
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE,
 
